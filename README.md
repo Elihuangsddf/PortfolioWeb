@@ -31,4 +31,4 @@ La sección final incluye accesos con iconos y comportamiento específico: corre
 
 ## Identidad visual
 
-El sitio utiliza un favicon SVG corporativo con el monograma `EA`, visible en la pestaña del navegador y reutilizado como logotipo en la navegación.
+El sitio utiliza un favicon SVG corporativo con el monograma `ENAP`, correspondiente a Elihú Neftalí Ángeles Pérez, visible en la pestaña del navegador y reutilizado como logotipo en la navegación.
