@@ -151,7 +151,7 @@ function App() {
       <div className="scroll-progress" style={{ transform: `scaleX(${scrollProgress / 100})` }} />
       <div className="grain" /><div className="cursor-aura" /><div className="ambient ambient-one" /><div className="ambient ambient-two" />
       <header className="nav-wrap"><nav className="nav container">
-        <a href="#inicio" className="brand" onClick={closeMenu}><span className="brand-mark">ENAP</span><span className="brand-name">ELIHÚ NEFTALÍ ÁNGELES PÉREZ<span className="brand-dot">.</span></span></a>
+        <a href="#inicio" className="brand" onClick={closeMenu}><span className="brand-mark"><img src="/favicon.svg" alt="" /></span><span className="brand-name">ELIHÚ NEFTALÍ ÁNGELES PÉREZ<span className="brand-dot">.</span></span></a>
         <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label={t.nav.menu} aria-expanded={menuOpen}><span /><span /></button>
         <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
           <a href="#sobre-mi" onClick={closeMenu}>{t.nav.about}</a><a href="#experiencia" onClick={closeMenu}>{t.nav.experience}</a><a href="#proyectos" onClick={closeMenu}>{t.nav.projects}</a><a href="#contacto" className="nav-cta" onClick={closeMenu}>{t.nav.contact} <Arrow /></a>

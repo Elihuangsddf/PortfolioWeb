@@ -28,3 +28,7 @@ La navegación incluye un selector entre Español (Latinoamérica) e English. La
 ## Contacto
 
 La sección final incluye accesos con iconos y comportamiento específico: correo mediante `mailto:`, perfil profesional de LinkedIn y repositorios de GitHub en pestañas nuevas seguras.
+
+## Identidad visual
+
+El sitio utiliza un favicon SVG corporativo con el monograma `EA`, visible en la pestaña del navegador y reutilizado como logotipo en la navegación.
