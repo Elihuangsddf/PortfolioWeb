@@ -1,3 +1,64 @@
+# Dependencies and local package-manager caches
 node_modules/
+.pnpm-store/
+.npm/
+.yarn/cache/
+.yarn/unplugged/
+
+# Production builds, reports and temporary generated files
 dist/
+build/
+coverage/
+.vite/
+*.tsbuildinfo
+
+# Environment variables and local runtime configuration
+.env
+.env.*
+!.env.example
+!.env.*.example
+.vercel/
+.npmrc
+
+# Credentials, certificates and private keys
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa*
+id_ed25519*
+credentials.json
+credentials.*.json
+service-account*.json
+*firebase-adminsdk*.json
+secrets/
+private/
+
+# Logs and diagnostic output
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor and operating-system settings
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
 .DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary and backup files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
