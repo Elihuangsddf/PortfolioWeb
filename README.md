@@ -23,7 +23,7 @@ La vista incluye también forks, repositorios archivados y el repositorio especi
 
 ## Certificados y certificaciones desde Google Drive
 
-Las dos galerías consultan las carpetas públicas configuradas en `api/drive-files.js`. Cada PDF se muestra con una vista previa de Google Drive y un enlace para abrir el documento completo. Los cambios en Drive se reflejan automáticamente en el sitio; la respuesta se conserva en caché durante cinco minutos para proteger la cuota de la API.
+Las dos galerías consultan las carpetas públicas configuradas en `api/drive-files.js`. Se recorren también sus subcarpetas y se muestran todos los archivos encontrados, con el visor correspondiente para PDF, documentos, hojas de cálculo, presentaciones, imágenes, video, audio y otros formatos compatibles con Google Drive. Los cambios en Drive se reflejan automáticamente en el sitio; la respuesta se conserva en caché durante cinco minutos para proteger la cuota de la API.
 
 Para activar la sincronización:
 

@@ -58,7 +58,7 @@ const copy = {
     projects: { label: '03 / REPOSITORIOS DE GITHUB', title: 'Trabajo que', accent: 'evoluciona.', live: 'Sincronizado con GitHub', syncing: 'Sincronizando…', fallback: 'Mostrando última versión', automatic: 'Actualización automática al cargar', repository: 'Repositorio', generic: 'Repositorio de {language} publicado en GitHub.', updated: 'Actualizado', all: 'Explorar todos los repositorios en GitHub' },
     certificates: { label: '04 / CERTIFICADOS', title: 'Evidencias de', accent: 'mi trayectoria.', intro: 'Constancias y reconocimientos que documentan experiencias, participación y aprendizaje.' },
     certifications: { label: '05 / CERTIFICACIONES', title: 'Conocimiento', accent: 'validado.', intro: 'Certificaciones profesionales y técnicas que respaldan las habilidades desarrolladas.' },
-    documents: { syncing: 'Sincronizando con Google Drive…', live: 'Actualizado desde Google Drive', unavailable: 'No fue posible cargar los documentos en este momento.', empty: 'Aún no hay archivos PDF en esta carpeta.', open: 'Abrir PDF', folder: 'Abrir carpeta en Drive', updated: 'Actualizado', preview: 'Vista previa de' },
+    documents: { syncing: 'Sincronizando con Google Drive…', live: 'Actualizado desde Google Drive', unavailable: 'No fue posible cargar los archivos en este momento.', empty: 'Aún no hay archivos en esta carpeta.', open: 'Abrir archivo', folder: 'Abrir carpeta en Drive', updated: 'Actualizado', preview: 'Vista previa de' },
     education: { label: '06 / FORMACIÓN', current: '2023 — ACTUALIDAD', degree: 'Ingeniería en Tecnologías de la Información', university: 'Universidad Politécnica Metropolitana de Hidalgo (UPMH)', schoolYears: '2018 — 2021', technical: 'Técnico en Tecnologías de la Información', school: 'Colegio de Bachilleres del Estado de Hidalgo · CEMSAD San Cristóbal' },
     contact: { label: '07 / CONTACTO', title: '¿Construimos algo', accent: 'interesante?', location: 'Pachuca de Soto, Hidalgo, México', email: 'Correo', emailAction: 'Enviar mensaje', linkedin: 'LinkedIn', linkedinAction: 'Ver perfil profesional', github: 'GitHub', githubAction: 'Explorar repositorios' },
     footer: { made: 'Diseñado y desarrollado con curiosidad', top: 'Volver arriba ↑' }
@@ -78,7 +78,7 @@ const copy = {
     projects: { label: '03 / GITHUB REPOSITORIES', title: 'Work that', accent: 'keeps evolving.', live: 'Synced with GitHub', syncing: 'Syncing…', fallback: 'Showing latest version', automatic: 'Automatically updated on load', repository: 'Repository', generic: '{language} repository published on GitHub.', updated: 'Updated', all: 'Explore all repositories on GitHub' },
     certificates: { label: '04 / CERTIFICATES', title: 'Evidence of', accent: 'my journey.', intro: 'Awards and records documenting experiences, participation, and continuous learning.' },
     certifications: { label: '05 / CERTIFICATIONS', title: 'Knowledge', accent: 'validated.', intro: 'Professional and technical certifications supporting the skills I have developed.' },
-    documents: { syncing: 'Syncing with Google Drive…', live: 'Updated from Google Drive', unavailable: 'Documents could not be loaded at this time.', empty: 'There are no PDF files in this folder yet.', open: 'Open PDF', folder: 'Open folder in Drive', updated: 'Updated', preview: 'Preview of' },
+    documents: { syncing: 'Syncing with Google Drive…', live: 'Updated from Google Drive', unavailable: 'Files could not be loaded at this time.', empty: 'There are no files in this folder yet.', open: 'Open file', folder: 'Open folder in Drive', updated: 'Updated', preview: 'Preview of' },
     education: { label: '06 / EDUCATION', current: '2023 — PRESENT', degree: 'B.Eng. in Information Technology', university: 'Universidad Politécnica Metropolitana de Hidalgo (UPMH)', schoolYears: '2018 — 2021', technical: 'Information Technology Technician', school: 'Colegio de Bachilleres del Estado de Hidalgo · CEMSAD San Cristóbal' },
     contact: { label: '07 / CONTACT', title: 'Shall we build something', accent: 'interesting?', location: 'Pachuca de Soto, Hidalgo, Mexico', email: 'Email', emailAction: 'Send a message', linkedin: 'LinkedIn', linkedinAction: 'View professional profile', github: 'GitHub', githubAction: 'Explore repositories' },
     footer: { made: 'Designed and developed with curiosity', top: 'Back to top ↑' }
@@ -108,8 +108,8 @@ function ContactIcon({ type }) {
   return <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" d="M3 5.5h18v13H3zM3.5 6l8.5 7 8.5-7" /></svg>;
 }
 
-function PdfIcon() {
-  return <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" d="M6 2.8h8l4 4V21H6zM14 2.8v4h4M8.8 16.5v-5h1.5a1.6 1.6 0 0 1 0 3.2H8.8m5.1 1.8v-5h1.2c1.6 0 2.6.9 2.6 2.5s-1 2.5-2.6 2.5z" /></svg>;
+function FileIcon() {
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" d="M6 2.8h8l4 4V21H6zM14 2.8v4h4M9 12h6M9 15.5h6M9 19h4" /></svg>;
 }
 
 function DocumentSection({ id, content, files, status, folderUrl, labels, formatDate, tone }) {
@@ -119,10 +119,10 @@ function DocumentSection({ id, content, files, status, folderUrl, labels, format
       <div className="documents-heading reveal"><div><h2>{content.title}<br /><em>{content.accent}</em></h2><p>{content.intro}</p></div><div className={`drive-sync ${status}`}><span className="sync-dot" />{status === 'syncing' ? labels.syncing : status === 'live' ? labels.live : labels.unavailable}</div></div>
       {status === 'syncing' && <div className="document-grid" aria-hidden="true"><div className="document-skeleton" /><div className="document-skeleton" /></div>}
       {status !== 'syncing' && files.length > 0 && <div className="document-grid">{files.map((file) => <article className="document-card reveal" key={file.id}>
-        <div className="pdf-preview"><iframe src={file.previewUrl} title={`${labels.preview} ${file.name}`} loading="lazy" referrerPolicy="strict-origin-when-cross-origin" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-downloads" /></div>
-        <div className="document-info"><span className="document-icon"><PdfIcon /></span><div><span className="document-type">PDF · GOOGLE DRIVE</span><h3>{file.name.replace(/\.pdf$/i, '')}</h3><p>{labels.updated} {formatDate(file.modifiedTime)}</p></div><a href={file.viewUrl} target="_blank" rel="noopener noreferrer" aria-label={`${labels.open}: ${file.name}`}>{labels.open} <Arrow /></a></div>
+        <div className="document-preview"><iframe src={file.previewUrl} title={`${labels.preview} ${file.name}`} loading="lazy" referrerPolicy="strict-origin-when-cross-origin" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-downloads" /><span className="file-format">{file.type}</span></div>
+        <div className="document-info"><span className="document-icon"><FileIcon /></span><div><span className="document-type">{file.type} · GOOGLE DRIVE</span><h3>{file.name.replace(/\.[^/.]+$/i, '')}</h3><p>{labels.updated} {formatDate(file.modifiedTime)}</p></div><a href={file.viewUrl} target="_blank" rel="noopener noreferrer" aria-label={`${labels.open}: ${file.name}`}>{labels.open} <Arrow /></a></div>
       </article>)}</div>}
-      {status !== 'syncing' && files.length === 0 && <div className="documents-empty reveal"><PdfIcon /><p>{status === 'error' ? labels.unavailable : labels.empty}</p></div>}
+      {status !== 'syncing' && files.length === 0 && <div className="documents-empty reveal"><FileIcon /><p>{status === 'error' ? labels.unavailable : labels.empty}</p></div>}
       <a className="drive-folder-link reveal" href={folderUrl} target="_blank" rel="noopener noreferrer">{labels.folder} <Arrow /></a>
     </div>
   </section>;
