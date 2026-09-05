@@ -64,11 +64,12 @@ a { color:inherit; text-decoration:none; }
 .documents-heading h2 { margin:0; font-size:clamp(46px,6vw,78px); line-height:.96; letter-spacing:-.065em; }
 .documents-heading h2 em { color:var(--lime); font-style:normal; }
 .documents-heading p { max-width:430px; margin:24px 0 0; color:var(--muted); font-size:15px; line-height:1.7; }
-.drive-sync { flex:0 0 auto; display:flex; align-items:center; gap:10px; max-width:245px; padding:11px 14px; border:1px solid rgba(81,201,139,.2); border-radius:999px; color:#9fddbd; background:rgba(81,201,139,.06); font:11px 'DM Mono'; letter-spacing:.04em; }
+.drive-sync { flex:0 0 auto; display:flex; align-items:center; flex-wrap:wrap; justify-content:flex-end; gap:9px; max-width:290px; color:#b7c3d4; text-align:right; font:11px 'DM Mono'; letter-spacing:.08em; }
+.drive-sync small { flex-basis:100%; color:#68798f; font-size:10px; letter-spacing:.12em; }
 .drive-sync .sync-dot { flex:0 0 auto; }
 .drive-sync.syncing .sync-dot { animation:pulse 1.2s infinite; }
 .drive-sync.live .sync-dot { background:#51c98b; box-shadow:0 0 0 5px rgba(81,201,139,.1); }
-.drive-sync.error { color:#b7c3d4; border-color:rgba(145,160,180,.2); background:rgba(145,160,180,.05); }
+.drive-sync.error { color:#a6b2c2; }
 .drive-sync.error .sync-dot { background:#91a0b4; box-shadow:0 0 0 5px rgba(145,160,180,.08); }
 .document-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
 .document-card { min-width:0; overflow:hidden; border:1px solid rgba(75,157,255,.2); border-radius:16px; background:linear-gradient(145deg,rgba(18,39,64,.94),rgba(7,20,35,.97)); box-shadow:0 16px 42px rgba(0,0,0,.18); transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .35s,box-shadow .4s; }
@@ -97,7 +98,7 @@ a { color:inherit; text-decoration:none; }
 
 @media (max-width:900px) {
   .documents-heading { display:block; }
-  .drive-sync { width:max-content; max-width:100%; margin-top:25px; }
+  .drive-sync { width:max-content; max-width:100%; margin-top:25px; justify-content:flex-start; text-align:left; }
 }
 
 @media (max-width:680px) {
