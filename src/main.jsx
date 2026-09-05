@@ -6,6 +6,10 @@ const githubUrl = 'https://github.com/Elihuangsddf';
 const githubReposUrl = `${githubUrl}?tab=repositories`;
 const githubApi = 'https://api.github.com/users/Elihuangsddf/repos?sort=updated&direction=desc&per_page=100';
 const linkedinUrl = 'https://www.linkedin.com/in/elihú-neftalí-ángeles-pérez-866942377';
+const driveFolderUrls = {
+  certificates: 'https://drive.google.com/drive/folders/1z4GMGPH1VmVRq5ALiSvwMhikQ0nLrlaf?usp=sharing',
+  certifications: 'https://drive.google.com/drive/folders/1aa2EPuI-4gl2M6el1TxR9fautgiMvEo5?usp=sharing'
+};
 
 const skillGroups = {
   software: ['Python', 'JavaScript', 'Java', 'C#', 'C++', 'HTML5 & CSS3', 'Git'],
@@ -41,7 +45,7 @@ const repoDescriptions = {
 const copy = {
   es: {
     locale: 'es-MX', documentLang: 'es-419', title: 'Elihú Ángeles Pérez — Software, Cloud y Redes', description: 'Portafolio profesional de Elihú Neftalí Ángeles Pérez, estudiante de Ingeniería en Tecnologías de la Información.',
-    nav: { about: 'Sobre mí', experience: 'Experiencia', projects: 'Proyectos', contact: 'Hablemos', menu: 'Abrir menú', language: 'Seleccionar idioma' },
+    nav: { about: 'Sobre mí', experience: 'Experiencia', projects: 'Proyectos', credentials: 'Credenciales', contact: 'Hablemos', menu: 'Abrir menú', language: 'Seleccionar idioma' },
     hero: { status: 'Disponible para nuevas oportunidades', line1: 'Construyo', accent: 'soluciones', line3: 'que conectan.', intro: 'Estudiante de Ingeniería en Tecnologías de la Información con enfoque en desarrollo de software, cloud computing y redes.', projects: 'Explorar proyectos', know: 'Conóceme mejor', art: 'Retrato profesional con una composición tecnológica animada', photoAlt: 'Retrato profesional de Elihú Neftalí Ángeles Pérez', scroll: 'Desliza para explorar' },
     stats: { achievements: 'logros competitivos', repos: 'repositorios públicos', since: 'inicio de formación TI', note1: 'Ingeniería con propósito', note2: 'y evolución constante.' },
     about: { label: '01 / SOBRE MÍ', title: 'Perfil', accent: 'híbrido.', lead: 'Me muevo entre el código, la infraestructura y el hardware para entender el sistema completo.', body: 'Actualmente curso el noveno cuatrimestre de Ingeniería en Tecnologías de la Información en la Universidad Politécnica Metropolitana de Hidalgo. Me interesa convertir problemas complejos en experiencias digitales claras, confiables y bien construidas.', signature: '— curiosidad + ejecución', tabs: { software: 'Software', web: 'Web y Cloud', data: 'Datos y Diseño', networks: 'Redes y Hardware' } },
@@ -52,13 +56,16 @@ const copy = {
       ['2024', '◉', 'ROBÓTICA · AUTONOMÍA', 'Carrito seguidor de línea', '2.º lugar regional por equipos, programando y calibrando sensores para navegación autónoma.']
     ] },
     projects: { label: '03 / REPOSITORIOS DE GITHUB', title: 'Trabajo que', accent: 'evoluciona.', live: 'Sincronizado con GitHub', syncing: 'Sincronizando…', fallback: 'Mostrando última versión', automatic: 'Actualización automática al cargar', repository: 'Repositorio', generic: 'Repositorio de {language} publicado en GitHub.', updated: 'Actualizado', all: 'Explorar todos los repositorios en GitHub' },
-    education: { label: '04 / FORMACIÓN', current: '2023 — ACTUALIDAD', degree: 'Ingeniería en Tecnologías de la Información', university: 'Universidad Politécnica Metropolitana de Hidalgo (UPMH)', schoolYears: '2018 — 2021', technical: 'Técnico en Tecnologías de la Información', school: 'Colegio de Bachilleres del Estado de Hidalgo · CEMSAD San Cristóbal' },
-    contact: { label: '05 / CONTACTO', title: '¿Construimos algo', accent: 'interesante?', location: 'Pachuca de Soto, Hidalgo, México', email: 'Correo', emailAction: 'Enviar mensaje', linkedin: 'LinkedIn', linkedinAction: 'Ver perfil profesional', github: 'GitHub', githubAction: 'Explorar repositorios' },
+    certificates: { label: '04 / CERTIFICADOS', title: 'Evidencias de', accent: 'mi trayectoria.', intro: 'Constancias y reconocimientos que documentan experiencias, participación y aprendizaje.' },
+    certifications: { label: '05 / CERTIFICACIONES', title: 'Conocimiento', accent: 'validado.', intro: 'Certificaciones profesionales y técnicas que respaldan las habilidades desarrolladas.' },
+    documents: { syncing: 'Sincronizando con Google Drive…', live: 'Actualizado desde Google Drive', unavailable: 'No fue posible cargar los documentos en este momento.', empty: 'Aún no hay archivos PDF en esta carpeta.', open: 'Abrir PDF', folder: 'Abrir carpeta en Drive', updated: 'Actualizado', preview: 'Vista previa de' },
+    education: { label: '06 / FORMACIÓN', current: '2023 — ACTUALIDAD', degree: 'Ingeniería en Tecnologías de la Información', university: 'Universidad Politécnica Metropolitana de Hidalgo (UPMH)', schoolYears: '2018 — 2021', technical: 'Técnico en Tecnologías de la Información', school: 'Colegio de Bachilleres del Estado de Hidalgo · CEMSAD San Cristóbal' },
+    contact: { label: '07 / CONTACTO', title: '¿Construimos algo', accent: 'interesante?', location: 'Pachuca de Soto, Hidalgo, México', email: 'Correo', emailAction: 'Enviar mensaje', linkedin: 'LinkedIn', linkedinAction: 'Ver perfil profesional', github: 'GitHub', githubAction: 'Explorar repositorios' },
     footer: { made: 'Diseñado y desarrollado con curiosidad', top: 'Volver arriba ↑' }
   },
   en: {
     locale: 'en-US', documentLang: 'en', title: 'Elihú Ángeles Pérez — Software, Cloud & Networks', description: 'Professional portfolio of Elihú Neftalí Ángeles Pérez, Information Technology Engineering student.',
-    nav: { about: 'About', experience: 'Experience', projects: 'Projects', contact: "Let's talk", menu: 'Open menu', language: 'Select language' },
+    nav: { about: 'About', experience: 'Experience', projects: 'Projects', credentials: 'Credentials', contact: "Let's talk", menu: 'Open menu', language: 'Select language' },
     hero: { status: 'Available for new opportunities', line1: 'I build', accent: 'solutions', line3: 'that connect.', intro: 'Information Technology Engineering student focused on software development, cloud computing, and networks.', projects: 'Explore projects', know: 'Get to know me', art: 'Professional portrait within an animated technology composition', photoAlt: 'Professional portrait of Elihú Neftalí Ángeles Pérez', scroll: 'Scroll to explore' },
     stats: { achievements: 'competitive achievements', repos: 'public repositories', since: 'IT journey started', note1: 'Engineering with purpose', note2: 'and constant evolution.' },
     about: { label: '01 / ABOUT ME', title: 'Hybrid', accent: 'profile.', lead: 'I move between code, infrastructure, and hardware to understand the complete system.', body: 'I am currently in the ninth term of Information Technology Engineering at Universidad Politécnica Metropolitana de Hidalgo. I am interested in turning complex problems into clear, reliable, and well-crafted digital experiences.', signature: '— curiosity + execution', tabs: { software: 'Software', web: 'Web & Cloud', data: 'Data & Design', networks: 'Networks & Hardware' } },
@@ -69,8 +76,11 @@ const copy = {
       ['2024', '◉', 'ROBOTICS · AUTONOMY', 'Line-following robot', '2nd place regionally as a team, programming and calibrating sensors for autonomous navigation.']
     ] },
     projects: { label: '03 / GITHUB REPOSITORIES', title: 'Work that', accent: 'keeps evolving.', live: 'Synced with GitHub', syncing: 'Syncing…', fallback: 'Showing latest version', automatic: 'Automatically updated on load', repository: 'Repository', generic: '{language} repository published on GitHub.', updated: 'Updated', all: 'Explore all repositories on GitHub' },
-    education: { label: '04 / EDUCATION', current: '2023 — PRESENT', degree: 'B.Eng. in Information Technology', university: 'Universidad Politécnica Metropolitana de Hidalgo (UPMH)', schoolYears: '2018 — 2021', technical: 'Information Technology Technician', school: 'Colegio de Bachilleres del Estado de Hidalgo · CEMSAD San Cristóbal' },
-    contact: { label: '05 / CONTACT', title: 'Shall we build something', accent: 'interesting?', location: 'Pachuca de Soto, Hidalgo, Mexico', email: 'Email', emailAction: 'Send a message', linkedin: 'LinkedIn', linkedinAction: 'View professional profile', github: 'GitHub', githubAction: 'Explore repositories' },
+    certificates: { label: '04 / CERTIFICATES', title: 'Evidence of', accent: 'my journey.', intro: 'Awards and records documenting experiences, participation, and continuous learning.' },
+    certifications: { label: '05 / CERTIFICATIONS', title: 'Knowledge', accent: 'validated.', intro: 'Professional and technical certifications supporting the skills I have developed.' },
+    documents: { syncing: 'Syncing with Google Drive…', live: 'Updated from Google Drive', unavailable: 'Documents could not be loaded at this time.', empty: 'There are no PDF files in this folder yet.', open: 'Open PDF', folder: 'Open folder in Drive', updated: 'Updated', preview: 'Preview of' },
+    education: { label: '06 / EDUCATION', current: '2023 — PRESENT', degree: 'B.Eng. in Information Technology', university: 'Universidad Politécnica Metropolitana de Hidalgo (UPMH)', schoolYears: '2018 — 2021', technical: 'Information Technology Technician', school: 'Colegio de Bachilleres del Estado de Hidalgo · CEMSAD San Cristóbal' },
+    contact: { label: '07 / CONTACT', title: 'Shall we build something', accent: 'interesting?', location: 'Pachuca de Soto, Hidalgo, Mexico', email: 'Email', emailAction: 'Send a message', linkedin: 'LinkedIn', linkedinAction: 'View professional profile', github: 'GitHub', githubAction: 'Explore repositories' },
     footer: { made: 'Designed and developed with curiosity', top: 'Back to top ↑' }
   }
 };
@@ -98,12 +108,34 @@ function ContactIcon({ type }) {
   return <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" d="M3 5.5h18v13H3zM3.5 6l8.5 7 8.5-7" /></svg>;
 }
 
+function PdfIcon() {
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" d="M6 2.8h8l4 4V21H6zM14 2.8v4h4M8.8 16.5v-5h1.5a1.6 1.6 0 0 1 0 3.2H8.8m5.1 1.8v-5h1.2c1.6 0 2.6.9 2.6 2.5s-1 2.5-2.6 2.5z" /></svg>;
+}
+
+function DocumentSection({ id, content, files, status, folderUrl, labels, formatDate, tone }) {
+  return <section id={id} className={`section documents-section documents-${tone}`}>
+    <div className="container">
+      <div className="section-label reveal">{content.label}</div>
+      <div className="documents-heading reveal"><div><h2>{content.title}<br /><em>{content.accent}</em></h2><p>{content.intro}</p></div><div className={`drive-sync ${status}`}><span className="sync-dot" />{status === 'syncing' ? labels.syncing : status === 'live' ? labels.live : labels.unavailable}</div></div>
+      {status === 'syncing' && <div className="document-grid" aria-hidden="true"><div className="document-skeleton" /><div className="document-skeleton" /></div>}
+      {status !== 'syncing' && files.length > 0 && <div className="document-grid">{files.map((file) => <article className="document-card reveal" key={file.id}>
+        <div className="pdf-preview"><iframe src={file.previewUrl} title={`${labels.preview} ${file.name}`} loading="lazy" referrerPolicy="strict-origin-when-cross-origin" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-downloads" /></div>
+        <div className="document-info"><span className="document-icon"><PdfIcon /></span><div><span className="document-type">PDF · GOOGLE DRIVE</span><h3>{file.name.replace(/\.pdf$/i, '')}</h3><p>{labels.updated} {formatDate(file.modifiedTime)}</p></div><a href={file.viewUrl} target="_blank" rel="noopener noreferrer" aria-label={`${labels.open}: ${file.name}`}>{labels.open} <Arrow /></a></div>
+      </article>)}</div>}
+      {status !== 'syncing' && files.length === 0 && <div className="documents-empty reveal"><PdfIcon /><p>{status === 'error' ? labels.unavailable : labels.empty}</p></div>}
+      <a className="drive-folder-link reveal" href={folderUrl} target="_blank" rel="noopener noreferrer">{labels.folder} <Arrow /></a>
+    </div>
+  </section>;
+}
+
 function App() {
   const [language, setLanguage] = useState(() => localStorage.getItem('portfolio-language') || 'es');
   const [menuOpen, setMenuOpen] = useState(false);
   const [skillTab, setSkillTab] = useState('software');
   const [repos, setRepos] = useState(fallbackRepos);
   const [repoStatus, setRepoStatus] = useState('syncing');
+  const [driveFiles, setDriveFiles] = useState({ certificates: [], certifications: [] });
+  const [driveStatus, setDriveStatus] = useState('syncing');
   const [scrollProgress, setScrollProgress] = useState(0);
   const page = useReveal();
   const t = copy[language];
@@ -132,6 +164,21 @@ function App() {
   }, []);
 
   useEffect(() => {
+    const controller = new AbortController();
+    fetch('/api/drive-files', { signal: controller.signal, headers: { Accept: 'application/json' } })
+      .then((response) => { if (!response.ok) throw new Error('Drive API unavailable'); return response.json(); })
+      .then((data) => {
+        setDriveFiles({
+          certificates: Array.isArray(data.certificates) ? data.certificates : [],
+          certifications: Array.isArray(data.certifications) ? data.certifications : []
+        });
+        setDriveStatus('live');
+      })
+      .catch((error) => { if (error.name !== 'AbortError') setDriveStatus('error'); });
+    return () => controller.abort();
+  }, []);
+
+  useEffect(() => {
     const updateProgress = () => {
       const height = document.documentElement.scrollHeight - window.innerHeight;
       setScrollProgress(height > 0 ? (window.scrollY / height) * 100 : 0);
@@ -154,7 +201,7 @@ function App() {
         <a href="#inicio" className="brand" onClick={closeMenu}><span className="brand-mark"><img src="/favicon.svg" alt="" /></span><span className="brand-name">ELIHÚ NEFTALÍ ÁNGELES PÉREZ<span className="brand-dot">.</span></span></a>
         <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label={t.nav.menu} aria-expanded={menuOpen}><span /><span /></button>
         <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
-          <a href="#sobre-mi" onClick={closeMenu}>{t.nav.about}</a><a href="#experiencia" onClick={closeMenu}>{t.nav.experience}</a><a href="#proyectos" onClick={closeMenu}>{t.nav.projects}</a><a href="#contacto" className="nav-cta" onClick={closeMenu}>{t.nav.contact} <Arrow /></a>
+          <a href="#sobre-mi" onClick={closeMenu}>{t.nav.about}</a><a href="#experiencia" onClick={closeMenu}>{t.nav.experience}</a><a href="#proyectos" onClick={closeMenu}>{t.nav.projects}</a><a href="#certificados" onClick={closeMenu}>{t.nav.credentials}</a><a href="#contacto" className="nav-cta" onClick={closeMenu}>{t.nav.contact} <Arrow /></a>
           <div className="language-switch" role="group" aria-label={t.nav.language}><button className={language === 'es' ? 'active' : ''} onClick={() => chooseLanguage('es')} aria-pressed={language === 'es'}>ES <span>Latam</span></button><button className={language === 'en' ? 'active' : ''} onClick={() => chooseLanguage('en')} aria-pressed={language === 'en'}>EN <span>English</span></button></div>
         </div>
       </nav></header>
@@ -176,6 +223,9 @@ function App() {
           const description = repoDescriptions[repo.name]?.[language] || repo.description || t.projects.generic.replace('{language}', languageLabel);
           return <a className="project-card repo-card" href={repo.html_url} target="_blank" rel="noreferrer" key={repo.id ?? repo.name} style={{ '--delay': `${index * 70}ms` }}><div className="project-top"><span>{String(index + 1).padStart(2, '0')}</span><Arrow /></div><span className="tag">{languageLabel}</span><h3>{formatRepoName(repo.name)}</h3><p>{description}</p><div className="repo-meta"><span>{t.projects.updated} {formatDate(repo.updated_at)}</span><span>{repo.stargazers_count ?? 0} ★</span></div></a>;
         })}</div><a className="github-all reveal" href={githubReposUrl} target="_blank" rel="noreferrer"><span>{t.projects.all}</span><Arrow /></a></section>
+
+        <DocumentSection id="certificados" content={t.certificates} files={driveFiles.certificates} status={driveStatus} folderUrl={driveFolderUrls.certificates} labels={t.documents} formatDate={formatDate} tone="certificates" />
+        <DocumentSection id="certificaciones" content={t.certifications} files={driveFiles.certifications} status={driveStatus} folderUrl={driveFolderUrls.certifications} labels={t.documents} formatDate={formatDate} tone="certifications" />
 
         <section className="education-section"><div className="container education-grid"><div className="section-label reveal">{t.education.label}</div><div className="education-content reveal"><div className="edu-item"><span className="edu-year">{t.education.current}</span><h3>{t.education.degree}</h3><p>{t.education.university}</p></div><div className="edu-item"><span className="edu-year">{t.education.schoolYears}</span><h3>{t.education.technical}</h3><p>{t.education.school}</p></div></div></div></section>
         <section id="contacto" className="contact-section"><div className="container contact-inner"><div className="section-label">{t.contact.label}</div><h2 className="reveal">{t.contact.title}<br /><em>{t.contact.accent}</em></h2>
